@@ -47,6 +47,7 @@ A smart Python-based chatbot that uses NLP and machine learning techniques to un
 Here’s a sample of the chatbot in action:
 
 ![Chatbot Output](screenshots/chatbot-output.png)
+![Chatbot Output](screenshots/chatbot-output1.png)
 
 ## 📁 Project Structure
 
