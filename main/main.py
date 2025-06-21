@@ -1,8 +1,9 @@
 import re
 from sklearn.metrics.pairwise import cosine_similarity
-from features import reminders,weather_api, news_api
+from features import reminders,weather_api, news_api, web_browse
 from memory import user_memory
 from responses import general
+from features.web_browse import site_urls
 import joblib
 import spacy
 from responses.general import handle_unknown
@@ -186,6 +187,21 @@ while True:
     # checking it remember the favourite color
     elif predicted_intent == "favourite_color":
         print(user_memory.double_check_userinfo("favourite color"))
+
+       # web browse
+    elif predicted_intent == "search_web":
+        query = user_prompt
+        response = web_browse.search_web(query)
+        print("Bot:",response)
+
+    #open website
+    elif predicted_intent == "open_website":
+        site = web_browse.extract_site_name(user_prompt)
+        if site and site in site_urls:
+            response = f"Here's the link to {site.title()}: {site_urls[site]}"
+        else:
+            response = "Sorry, I couldn't recognize the website you want to open"
+        print("Bot: ",response)
 
     # extracting all saved info
     elif predicted_intent == "check_user":
