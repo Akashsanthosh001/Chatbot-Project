@@ -8,6 +8,8 @@ A smart Python-based chatbot that uses NLP and machine learning techniques to un
 
 - 🔍 **Intent Classification** using Sentence Transformers
 - 😊 **Sentiment Analysis** using VADER
+- 🔍 **Web Search Integration** with [SerpAPI](https://serpapi.com/) (returns top 3 results)
+- 🌐 **Open Website Commands** (e.g., YouTube, GitHub, Flipkart, Amazon)
 - 🧠 **Named Entity Recognition** with spaCy
 - 📚 **Text Preprocessing** with NLTK and spaCy
 - 📰 **News API Integration** *(placeholder key)*
@@ -15,7 +17,6 @@ A smart Python-based chatbot that uses NLP and machine learning techniques to un
 - 🗓️ **Reminder Management**
 - 💬 **Fallback response system** for unmatched queries
 - 🛠️ **Modular Code Structure** with reusability and clarity
-- 🌐 *(Planned)*: General web browsing answers
 - 🧠 **Custom Intent Classification Model** trained using logistic regression and Sentence Transformers
 - 📂 **Labeled Training Data** used to train spaCy NER and the ML model
 
@@ -29,8 +30,11 @@ A smart Python-based chatbot that uses NLP and machine learning techniques to un
 - **sentence-transformers**
 - **NLTK**, **spaCy** – for natural language processing
 - **VADER** – sentiment analysis
+- **SerpAPI** -for web search
 - **requests** – API calls
 - **OpenWeatherMap & NewsAPI** – live external data (via placeholder keys)
+- **Fuzzy matching (`difflib`)** -for typo handling
+- **Regex-based fallback and query parsing**
 
 ---
 
@@ -48,19 +52,6 @@ Here’s a sample of the chatbot in action:
 
 ![Chatbot Output](screenshots/chatbot-output.png)
 ![Chatbot Output](screenshots/chatbot-output1.png)
-
-## 📁 Project Structure
-
-chatbot-project/
-├── main/ # Main chatbot logic
-├── features/ # Modules: weather, news, reminders
-├── fallback/ # Default fallback replies
-├── memory/ # Stores user memory/context
-├── nlu/ # Intent, NER, sentiment modules
-├── responses/ # Pre-written responses
-├── training/ # Model training scripts
-├── utils/ # Helper functions
-├── .gitignore # Prevents secret files from uploading
 
 ## ⚙️ How to Run
 
@@ -84,7 +75,16 @@ chatbot-project/
 ---
 
 
-## 🧭 Future Plans
+## 📁 Project Structure
+```bash
 
-- Add .env support for secure secret management
-- Add web search support for answering general queries
+chatbot-project/
+├── main/                     # Main chatbot logic
+├── features/                 # Modules: weather, news, reminders, browse
+├── fallback/                 # Default fallback replies
+├── memory/                   # Stores user memory/context
+├── nlu/                      # Intent, NER, sentiment modules
+├── responses/                # Pre-written responses
+├── screenshot/               # Chatbot output screenshot(s)
+├── training/                 # Model training scripts
+├── .gitignore                # Prevents secret files from uploading
